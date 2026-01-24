@@ -1,8 +1,15 @@
 import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
+console.log("ENV CHECK:", {
+  IMAGEKIT_PUBLIC_KEY: process.env.IMAGEKIT_PUBLIC_KEY,
+  IMAGEKIT_PRIVATE_KEY: process.env.IMAGEKIT_PRIVATE_KEY ? "LOADED" : undefined,
+  IMAGEKIT_URL_ENDPOINT: process.env.IMAGEKIT_URL_ENDPOINT,
+});
+
 import connectDB from "./db/index.js";
 import app from "./app.js";
 
-dotenv.config({ path: "./.env" });
+
 
 connectDB()
   .then(() => {
